@@ -39,3 +39,20 @@ Developer Experience
 * Skype
 * Pinterest
 * Platzi
+
+
+- Si la imagen se encuentra en los archivos de la app se agrega como si fuera un componente:
+
+  import Image from'./image.png';
+  <Imagesource={Image} />
+
+Si es un ruta de internet lo agregarias con el uri:
+  <Image source={{uri:'la url'}}/>
+
+Nota:
+Para opciones avanzadas del emulador:
+adb shell input keyevent 82
+
+Styles
+Los estilos en React Native, se utilizan como en React, no es CSS convencional, las propiedades van con CamelCase, los valores de las propiedades pueden ser en números, si el valor es distinto como en el caso de porcentajes, rem o em, los valores van a ser strings y van entre comillas fontSize: ‘2.5rem’.
+Tambien en el caso de que usemos colores en hexadecimales o un color como red o blue color: ‘#a1a1a1’.
