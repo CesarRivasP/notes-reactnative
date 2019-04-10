@@ -72,3 +72,25 @@ Tambien en el caso de que usemos colores en hexadecimales o un color como red o 
 - Los **Actions** modifican el state de la aplicación dependiendo de la acción disparada.
 Usamos los **mapStateToProps** junto a **connect** para avisar a nuestros componentes de que se han producido cambios en el state.
 - En App.js al invocar el método dispatch del store, estamos simplemente enviando los datos recibidos de la API al nuevo “estado global” definido por el store, e indicando la “acción” de lo que queremos que se haga con estos datos. Luego a través del método connect se tienen disponibles estos datos en cualquier container sin necesidad de estarlos pasando explícitamente de props en props. Es lo que llamaríamos un nuevo estado global.
+
+### Importación de archivos
+Hay una técnica muy útil hasta este punto cuando tenemos muchos componentes en distintas carpetas y nos ocurre la siguiente situación:
+```
+import Component from '../../../component-folder/Component
+```
+Para evitarnos ese monton de **…/…/** podemos crear un archivo **package.json** en cada carpeta importante, la carpeta de las pantallas por ejemplo.
+
+Dentro de ese package.json colocamos:
+```
+}
+    "name": "@screens"
+{
+```
+Ya con esto hecho, podemos estar en cualquier otra carpeta y llamar a cualquier componente que esté dentro de la carpeta screens de esta manera.
+```
+import HomeScreen from'@screens/HomeScreen'
+```
+Y así nos evitamos el …/…/…/Component
+
+### React Native Debugger
+Si no sale el debugger, primero habrán el navegador y vayan a **http://localhost:8081/debugger-ui/** (la app intenta abrir el 10.0.2.2:8081/debugger-ui/), esta dirección si que hace el debugger. Y ya en la app abren la ventana de dev (ctrl + m ó cmd + m) y seleccionen el debugger.
