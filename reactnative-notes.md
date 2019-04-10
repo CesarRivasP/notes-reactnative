@@ -94,3 +94,15 @@ Y así nos evitamos el …/…/…/Component
 
 ### React Native Debugger
 Si no sale el debugger, primero habrán el navegador y vayan a **http://localhost:8081/debugger-ui/** (la app intenta abrir el 10.0.2.2:8081/debugger-ui/), esta dirección si que hace el debugger. Y ya en la app abren la ventana de dev (ctrl + m ó cmd + m) y seleccionen el debugger.
+
+### Animaciones
+Animated.timing recibe dos parámetros, el que vamos a cambiar y como vamos a cambiar
+```
+Animated.timing(
+    this.state.opacy,
+    {
+        toValue: 1,
+        duration: 1000,
+    }
+).start()
+```
