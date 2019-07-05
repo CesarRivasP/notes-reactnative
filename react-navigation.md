@@ -2,8 +2,8 @@ React Navigation
 React Navigation es una librería que nos ayuda a hacer navegación en nuestras aplicaciones móviles.
 
 
-
-Dimensions
+## Otros Apuntes
+### Dimensions
 react-native maneja un componente interno llamado Dimensions el cual te permite ajustar tu contenido a diferentes dispositivos, por ejemplo ;
 
 Importamos los componentes necesarios.
@@ -14,7 +14,7 @@ Usamos el componente Dimensions y lo asignamos a las variables de ancho y alto
 `let { height, width } = Dimensions.get('screen')`
 
 Y aplicamos estos cambios sobre nuestros estilos
-`
+```
 class IndexScreen extends Component{
 
     render(){
@@ -39,8 +39,33 @@ const styles = StyleSheet.create({
 		 }
 })
 export default IndexScreen
-`
-de esta forma puedes garantizar que el objeto que vas a renderizar sea una image, view, text se ajuste a las pantallas de los dispositivos.
+```
+De esta forma puedes garantizar que el objeto que vas a renderizar sea una image, view, text se ajuste a las pantallas de los dispositivos.
+
+### Uso de botones
+* Se puede usar el componente button o toachableOpacity
 
 
-watchman wtach-del-all para cuando aun borrando la cache no funciona
+
+El metodo navigate() de navigation nos lleva a otra pantalla dada la ruta que le especificamos
+```
+handlePress = () => {
+  this.props.navigation.navigate('Home')
+}
+```
+La prop navigation se manda a cada ruta/componente/pantalla que definimos en el StackNavigator
+
+
+### Resolucion de errores
+Para cuando aun borrando la cache, no hay cambios en el problema con watchman
+`watchman watch-del-all`
+
+### Ante el error 'Unable to load script from assets 'index.android.bundle'
+- Primero, en la carpeta android ejecuta: `./gradlew clean`
+- Crear la carpeta assets en `android/app/src/main/`
+- Ingresa en la terminal
+`react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res`
+- Ya puedes correr la aplicación
+`react-native run-android`
+**Nota**:
+- Si al correr la aplicación, ésta no se mantiene en ejecución, ingresa: `watchman watch-del-all && watchman shutdown-server`
